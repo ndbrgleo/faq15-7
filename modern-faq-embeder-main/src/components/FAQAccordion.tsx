@@ -53,25 +53,27 @@ const FAQAccordion = () => {
         />
       </div>
 
-      {/* Horizontal Categories */}
-      <div className="mb-8 flex gap-2 overflow-x-auto pb-2 justify-center">
-        {categories.map((category) => (
-          <Button
-            key={category}
-            variant={activeCategory === category ? "default" : "outline"}
-            className={`shrink-0 ${
-              activeCategory === category 
-                ? "bg-just-orange hover:bg-just-darkOrange text-white" 
-                : "hover:text-just-orange"
-            }`}
-            onClick={() => setActiveCategory(category)}
-          >
-            {category.charAt(0).toUpperCase() + category.slice(1)}
-          </Button>
-        ))}
-      </div>
-
       <div className="flex gap-8">
+        {/* Categories Panel */}
+        <div className="w-64 shrink-0">
+          <div className="sticky top-4 space-y-2">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={activeCategory === category ? "default" : "outline"}
+                className={`w-full ${
+                  activeCategory === category 
+                    ? "bg-just-orange hover:bg-just-darkOrange text-white" 
+                    : "hover:text-just-orange"
+                }`}
+                onClick={() => setActiveCategory(category)}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </Button>
+            ))}
+          </div>
+        </div>
+
         {/* Side Index */}
         <div className="w-64 shrink-0">
           <div className="sticky top-4">
