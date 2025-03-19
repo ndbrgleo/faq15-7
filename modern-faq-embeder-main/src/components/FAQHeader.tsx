@@ -6,7 +6,7 @@ const FAQHeader = () => {
   const navigate = useNavigate();
   
   return (
-    <div className="max-w-4xl mx-auto text-center">
+    <div className="max-w-2xl mx-auto text-center py-0 min-h-[100px] flex flex-col justify-center">
       <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
         Knowledge Hub
       </h1>
