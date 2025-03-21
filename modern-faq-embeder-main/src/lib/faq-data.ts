@@ -359,6 +359,143 @@ By managing company settings effectively, you ensure the right team members have
 - **Spot is best to negotiate on**, as it will set the tone for **forward pricing**.`,
   category: 'Guides (Playbooks)',
   videoEmbed: ''
-},
+  },
+{
+    id: 'faq-24',
+    question: 'Dummy : Multinational Retailer Saves Big) ',
+    answer: `In early 2022, a leading multinational retail chain with operations across Europe and Asia faced mounting FX costs. The company routinely executed large-volume currency trades for procurement, supplier settlements, and overseas staff payrolls. Despite having a sophisticated finance department, they were consistently overpaying due to opaque pricing structures with their banks.
 
+By onboarding with a transparent FX benchmarking solution, the company began monitoring margins on every trade. Within the first quarter, analytics revealed a consistent 50–70 PPM (points per million) markup on USD/SEK trades—far above industry standards.
+
+Armed with this data, they negotiated better rates. Their primary bank adjusted its pricing algorithm to remain competitive, and a secondary provider entered negotiations, offering volume-based pricing tiers. Within six months, the company achieved a 60% reduction in FX margin costs, saving over €425,000 annually.
+
+Beyond savings, they gained real-time visibility into pricing trends and were able to build a stronger, data-backed relationship with their providers.
+In early 2022, a leading multinational retail chain with operations across Europe and Asia faced mounting FX costs. The company routinely executed large-volume currency trades for procurement, supplier settlements, and overseas staff payrolls. Despite having a sophisticated finance department, they were consistently overpaying due to opaque pricing structures with their banks.
+
+By onboarding with a transparent FX benchmarking solution, the company began monitoring margins on every trade. Within the first quarter, analytics revealed a consistent 50–70 PPM (points per million) markup on USD/SEK trades—far above industry standards.
+
+Armed with this data, they negotiated better rates. Their primary bank adjusted its pricing algorithm to remain competitive, and a secondary provider entered negotiations, offering volume-based pricing tiers. Within six months, the company achieved a 60% reduction in FX margin costs, saving over €425,000 annually.
+
+Beyond savings, they gained real-time visibility into pricing trends and were able to build a stronger, data-backed relationship with their providers.
+In early 2022, a leading multinational retail chain with operations across Europe and Asia faced mounting FX costs. The company routinely executed large-volume currency trades for procurement, supplier settlements, and overseas staff payrolls. Despite having a sophisticated finance department, they were consistently overpaying due to opaque pricing structures with their banks.
+
+By onboarding with a transparent FX benchmarking solution, the company began monitoring margins on every trade. Within the first quarter, analytics revealed a consistent 50–70 PPM (points per million) markup on USD/SEK trades—far above industry standards.
+
+Armed with this data, they negotiated better rates. Their primary bank adjusted its pricing algorithm to remain competitive, and a secondary provider entered negotiations, offering volume-based pricing tiers. Within six months, the company achieved a 60% reduction in FX margin costs, saving over €425,000 annually.
+
+Beyond savings, they gained real-time visibility into pricing trends and were able to build a stronger, data-backed relationship with their providers.
+`,
+    category: 'Guides (Playbooks)',
+    videoEmbed: ''
+  },
+  {
+    id: 'faq-25',
+    question: 'Another topic Ep2',
+    answer: `- **Best way to approach**
+  - **Success stories to exemplify** (testimonials, case studies)
+  - **Discount levels**
+  - **Use data** – leverage a **data-driven approach** to strengthen negotiations.
+  - **Spot is best to negotiate on**, as it will set the tone for **forward pricing**.`,
+    category: 'Guides (Playbooks)',
+    videoEmbed: ''
+  },
+  {
+    id: 'faq-26',
+    question: 'Another topic Ep3',
+    answer: `- **Best way to approach**
+  - **Success stories to exemplify** (testimonials, case studies)
+  - **Discount levels**
+  - **Use data** – leverage a **data-driven approach** to strengthen negotiations.
+  - **Spot is best to negotiate on**, as it will set the tone for **forward pricing**.`,
+    category: 'Guides (Playbooks)',
+    videoEmbed: ''
+  },
+  {
+    id: 'faq-27',
+    question: 'Another topic Ep4',
+    answer: `- **Best way to approach**
+  - **Success stories to exemplify** (testimonials, case studies)
+  - **Discount levels**
+  - **Use data** – leverage a **data-driven approach** to strengthen negotiations.
+  - **Spot is best to negotiate on**, as it will set the tone for **forward pricing**.`,
+    category: 'Guides (Playbooks)',
+    videoEmbed: ''
+  },
+  {
+    id: 'faq-28',
+    question: 'Another topic Ep5',
+    answer: `- **Best way to approach**
+  - **Success stories to exemplify** (testimonials, case studies)
+  - **Discount levels**
+  - **Use data** – leverage a **data-driven approach** to strengthen negotiations.
+  - **Spot is best to negotiate on**, as it will set the tone for **forward pricing**.`,
+    category: 'Guides (Playbooks)',
+    videoEmbed: ''
+  },
+  {
+    id: 'faq-29',
+    question: 'Another topic Ep6',
+    answer: `- **Best way to approach**
+  - **Success stories to exemplify** (testimonials, case studies)
+  - **Discount levels**
+  - **Use data** – leverage a **data-driven approach** to strengthen negotiations.
+  - **Spot is best to negotiate on**, as it will set the tone for **forward pricing**.`,
+    category: 'Guides (Playbooks)',
+    videoEmbed: ''
+  },
+  {
+    id: 'faq-30',
+    question: 'Another topic Ep7',
+    answer: `- **Best way to approach**
+  - **Success stories to exemplify** (testimonials, case studies)
+  - **Discount levels**
+  - **Use data** – leverage a **data-driven approach** to strengthen negotiations.
+  - **Spot is best to negotiate on**, as it will set the tone for **forward pricing**.`,
+    category: 'Guides (Playbooks)',
+    videoEmbed: ''
+  },
+  {
+    id: 'faq-31',
+    question: 'Another topic Ep8',
+    answer: `- **Best way to approach**
+  - **Success stories to exemplify** (testimonials, case studies)
+  - **Discount levels**
+  - **Use data** – leverage a **data-driven approach** to strengthen negotiations.
+  - **Spot is best to negotiate on**, as it will set the tone for **forward pricing**.`,
+    category: 'Guides (Playbooks)',
+    videoEmbed: ''
+  },
+  {
+    id: 'faq-32',
+    question: 'Another topic Ep9',
+    answer: `- **Best way to approach**
+  - **Success stories to exemplify** (testimonials, case studies)
+  - **Discount levels**
+  - **Use data** – leverage a **data-driven approach** to strengthen negotiations.
+  - **Spot is best to negotiate on**, as it will set the tone for **forward pricing**.`,
+    category: 'Guides (Playbooks)',
+    videoEmbed: ''
+  },
+  {
+    id: 'faq-33',
+    question: 'Another topic Ep10',
+    answer: `- **Best way to approach**
+  - **Success stories to exemplify** (testimonials, case studies)
+  - **Discount levels**
+  - **Use data** – leverage a **data-driven approach** to strengthen negotiations.
+  - **Spot is best to negotiate on**, as it will set the tone for **forward pricing**.`,
+    category: 'Guides (Playbooks)',
+    videoEmbed: ''
+  },
+  {
+    id: 'faq-34',
+    question: 'Another topic Ep11',
+    answer: `- **Best way to approach**
+  - **Success stories to exemplify** (testimonials, case studies)
+  - **Discount levels**
+  - **Use data** – leverage a **data-driven approach** to strengthen negotiations.
+  - **Spot is best to negotiate on**, as it will set the tone for **forward pricing**.`,
+    category: 'Guides (Playbooks)',
+    videoEmbed: ''
+  },
 ];
