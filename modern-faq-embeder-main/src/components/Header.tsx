@@ -15,7 +15,7 @@ const Header = () => {
           <div className="flex items-center">
             <a href="/" className="flex items-center">
               <LogoIcon className="h-8 w-auto text-just-orange" />
-              <span className="ml-2 text-2xl font-bold">Just</span>
+              <span className="ml-2 text-2xl font-bold"></span>
             </a>
           </div>
           
@@ -96,17 +96,14 @@ const Header = () => {
   );
 };
 
-const LogoIcon = ({ className }: { className?: string }) => (
-  <svg 
-    viewBox="0 0 24 24" 
-    fill="currentColor"
-    className={className}
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M3 3h18v18H3V3zm16 16V5H5v14h14z" fill="none" stroke="currentColor" strokeWidth="2" />
-    <path d="M3 3h8v8H3V3z" />
-  </svg>
+const LogoIcon = () => (
+  <img 
+    src="/Just.png" 
+    alt="Just Logo" 
+    className="h-8 w-auto"
+  />
 );
+
 
 interface NavItemProps {
   href?: string;
