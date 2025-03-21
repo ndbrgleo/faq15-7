@@ -22,3 +22,7 @@ args = "cd modern-faq-embeder-main && npm install && npm run dev"
 [[ports]]
 localPort = 8080
 externalPort = 80
+
+[[ports]]
+localPort = 8085
+externalPort = 3000
