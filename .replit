@@ -1,5 +1,5 @@
 modules = ["nodejs-20", "web"]
-run = "npm run dev"
+run = "cd faq-root && npm run dev"
 
 [nix]
 channel = "stable-24_05"
@@ -18,7 +18,7 @@ mode = "sequential"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm install && npm run dev"
+args = "cd faq-root && npm install && npm run dev"
 
 [[ports]]
 localPort = 8080
@@ -27,4 +27,3 @@ externalPort = 80
 [[ports]]
 localPort = 8085
 externalPort = 3000
-exposeLocalhost = true
