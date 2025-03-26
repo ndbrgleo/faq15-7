@@ -5,7 +5,8 @@ run = "npm run dev"
 channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "npm run dev"]
+deploymentTarget = "static"
+publicDir = "dist"
 
 [workflows]
 runButton = "Run"
@@ -17,7 +18,7 @@ mode = "sequential"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd modern-faq-embeder-main && npm install && npm run dev"
+args = "cd modern-faq-embeder-main && npm install && npm run build && cp -r dist ../dist"
 
 [[ports]]
 localPort = 8080
