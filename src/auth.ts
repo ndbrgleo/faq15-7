@@ -1,7 +1,7 @@
 import { UserManager, WebStorageStateStore, UserManagerSettings } from 'oidc-client-ts';
 
 const settings: UserManagerSettings = {
-  authority: 'https://accounts.gojust.com',
+  authority: 'https://accounts.dev.gojust.eu',
   client_id: 'sassy-saddles',
   redirect_uri: window.location.origin,
   post_logout_redirect_uri: window.location.origin,
