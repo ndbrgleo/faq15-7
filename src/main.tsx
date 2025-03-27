@@ -19,18 +19,20 @@ const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
           return;
         }
 
-        if (!auth.isAuthenticated && !auth.activeNavigator && !hasTriedSignin) {
+        if (!auth.isAuthenticated && 
+            !auth.activeNavigator && 
+            !hasTriedSignin && 
+            !window.location.pathname.includes('/callback')) {
           setHasTriedSignin(true);
-          // Clear any stale state before starting new auth flow
-          window.localStorage.removeItem('oidc.state');
           await auth.signinRedirect();
         }
       } catch (err) {
         console.error("Auth error:", err);
-        // Clear state and start over on error
-        window.localStorage.removeItem('oidc.state');
-        setHasTriedSignin(false);
-        window.history.replaceState({}, document.title, window.location.origin);
+        // Only reset on actual errors, not user cancellations
+        if (err.message !== 'Login canceled') {
+          setHasTriedSignin(false);
+          window.location.href = window.location.origin;
+        }
       }
     };
 
