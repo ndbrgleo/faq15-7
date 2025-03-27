@@ -6,7 +6,7 @@ import { userManager } from "./auth"; // adjust path if needed
 
 const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
   const auth = useAuth();
-
+console.log(auth)
   React.useEffect(() => {
     if (
       !(
