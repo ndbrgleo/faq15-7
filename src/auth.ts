@@ -3,12 +3,9 @@ import { UserManager, WebStorageStateStore, UserManagerSettings } from 'oidc-cli
 const settings: UserManagerSettings = {
   authority: 'https://accounts.dev.gojust.eu/realms/just',
   client_id: 'sassy-saddles',
-  redirect_uri: window.location.href,
+  redirect_uri: window.location.origin, // Must match OIDC config
   post_logout_redirect_uri: window.location.origin,
-
-  // ✅ Use localStorage instead
   userStore: new WebStorageStateStore({ store: window.localStorage }),
-
   monitorSession: true,
   response_type: 'code',
   scope: 'openid profile email',

@@ -1,22 +1,27 @@
 import { createRoot } from "react-dom/client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import App from "./App";
 import { AuthProvider, hasAuthParams, useAuth } from "react-oidc-context";
 import { userManager, handleLoginCallback } from "./auth";
+import "./index.css";
 
 const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
   const auth = useAuth();
+  const [hasTriedSignin, setHasTriedSignin] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleAuth = async () => {
       try {
-        if (hasAuthParams()) {
+        if (hasAuthParams() && !auth.isAuthenticated) {
           await handleLoginCallback();
         } else if (
           !auth.isAuthenticated &&
           !auth.activeNavigator &&
-          !auth.isLoading
+          !auth.isLoading &&
+          !window.location.pathname.includes("/callback") &&
+          !hasTriedSignin
         ) {
+          setHasTriedSignin(true);
           await auth.signinRedirect();
         }
       } catch (err) {
@@ -25,7 +30,7 @@ const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
     };
 
     handleAuth();
-  }, [auth]);
+  }, [auth.isAuthenticated, auth.activeNavigator, auth.isLoading, hasTriedSignin]);
 
   if (!auth.isAuthenticated) {
     return <div>Redirecting to login...</div>;
