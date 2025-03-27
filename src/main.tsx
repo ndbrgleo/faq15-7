@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import App from "./App";
 import { AuthProvider, hasAuthParams, useAuth } from "react-oidc-context";
 import { userManager, handleLoginCallback } from "./auth";
-import "./index.css";
 
 const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
   const auth = useAuth();
@@ -12,13 +11,15 @@ const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const handleAuth = async () => {
       try {
-        if (hasAuthParams() && !auth.isAuthenticated) {
+        if (hasAuthParams()) {
           await handleLoginCallback();
-        } else if (
+          return;
+        }
+
+        if (
           !auth.isAuthenticated &&
           !auth.activeNavigator &&
           !auth.isLoading &&
-          !window.location.pathname.includes("/callback") &&
           !hasTriedSignin
         ) {
           setHasTriedSignin(true);
@@ -26,11 +27,19 @@ const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
         }
       } catch (err) {
         console.error("Auth error:", err);
+        // Clear stale state to recover from broken auth state
+        window.localStorage.removeItem('oidc.state');
+        window.history.replaceState({}, document.title, window.location.origin);
       }
     };
 
     handleAuth();
-  }, [auth.isAuthenticated, auth.activeNavigator, auth.isLoading, hasTriedSignin]);
+  }, [
+    auth.isAuthenticated,
+    auth.activeNavigator,
+    auth.isLoading,
+    hasTriedSignin
+  ]);
 
   if (!auth.isAuthenticated) {
     return <div>Redirecting to login...</div>;
