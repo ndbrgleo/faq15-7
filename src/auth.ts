@@ -19,12 +19,14 @@ export const login = async () => {
 
 export const handleLoginCallback = async () => {
   try {
-    await userManager.signinCallback();
+    const url = window.location.href;
+    await userManager.signinCallback(url);
     window.history.replaceState({}, document.title, window.location.origin);
   } catch (err) {
     console.error('Signin callback error:', err);
-    // Clear stale state to avoid infinite loops
+    // Clean up storage and state
     window.localStorage.removeItem('oidc.state');
+    window.sessionStorage.removeItem('oidc.state');
     window.history.replaceState({}, document.title, window.location.origin);
     throw err;
   }
