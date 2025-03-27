@@ -2,22 +2,29 @@ import { createRoot } from "react-dom/client";
 import React from "react";
 import App from "./App";
 import { AuthProvider, hasAuthParams, useAuth } from "react-oidc-context";
-import { userManager } from "./auth"; // adjust path if needed
+import { userManager, handleLoginCallback } from "./auth";
 
 const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
   const auth = useAuth();
-console.log(auth)
+
   React.useEffect(() => {
-    if (
-      !(
-        hasAuthParams() ||
-        auth.isAuthenticated ||
-        auth.activeNavigator ||
-        auth.isLoading
-      )
-    ) {
-      void auth.signinRedirect();
-    }
+    const handleAuth = async () => {
+      try {
+        if (hasAuthParams()) {
+          await handleLoginCallback();
+        } else if (
+          !auth.isAuthenticated &&
+          !auth.activeNavigator &&
+          !auth.isLoading
+        ) {
+          await auth.signinRedirect();
+        }
+      } catch (err) {
+        console.error("Auth error:", err);
+      }
+    };
+
+    handleAuth();
   }, [auth]);
 
   if (!auth.isAuthenticated) {
