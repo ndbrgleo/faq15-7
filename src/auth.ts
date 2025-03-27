@@ -6,9 +6,11 @@ const settings: UserManagerSettings = {
   redirect_uri: window.location.origin,
   post_logout_redirect_uri: window.location.origin,
   userStore: new WebStorageStateStore({ store: window.localStorage }),
-  monitorSession: true,
+  monitorSession: false,  // Disable session monitoring to reduce errors
   response_type: 'code',
   scope: 'openid profile email',
+  staleStateAgeInSeconds: 3600,  // Increase stale state timeout
+  silentRequestTimeoutInSeconds: 10,  // Add timeout for silent requests
 };
 
 export const userManager = new UserManager(settings);
