@@ -10,38 +10,13 @@ const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
   const [hasTriedSignin, setHasTriedSignin] = useState(false);
 
   useEffect(() => {
-    const checkSession = async () => {
-      try {
-        if (!auth.isLoading && auth.isAuthenticated) {
-          await auth.querySessionStatus();
-        }
-      } catch {
-        await auth.removeUser();
-        await auth.signinRedirect();
-      }
-    };
+    if (auth.isLoading || auth.activeNavigator) return;
 
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        void checkSession();
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    auth.events?.addUserSignedOut(() => {
-      void auth.removeUser();
-      void auth.signinRedirect();
-    });
-
-    if (!auth.isLoading && !auth.activeNavigator && !auth.isAuthenticated && !hasTriedSignin) {
+    if (!auth.isAuthenticated && !hasTriedSignin) {
       setHasTriedSignin(true);
       void auth.signinRedirect();
     }
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, [auth, hasTriedSignin]);
+  }, [auth.isLoading, auth.activeNavigator, auth.isAuthenticated, hasTriedSignin]);
 
   if (!auth.isAuthenticated) {
     return <div>Redirecting to login...</div>;
