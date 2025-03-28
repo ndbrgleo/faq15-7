@@ -21,14 +21,16 @@ const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
 
   // ✅ New: Listen for logout from main app
   useEffect(() => {
-    const remove = userManager.events.addUserSignedOut(() => {
+    const remove = userManager.events.addUserSignedOut(async () => {
       console.log("User signed out from identity provider");
-      userManager.removeUser();
-      window.location.reload(); // Force login again
+      await userManager.removeUser();
+      setHasTriedSignin(false); // Reset signin attempt flag
+      auth.removeUser(); // Clear auth context
+      window.location.href = auth.settings.authority; // Redirect to IDP
     });
 
-    return () => remove(); // Clean up listener on unmount
-  }, []);
+    return () => remove();
+  }, [auth]);
 
   // Periodic token validation
   useEffect(() => {
