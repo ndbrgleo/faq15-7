@@ -23,7 +23,7 @@ export const signout = async () => {
   await userManager.signoutRedirect();
 };
 
-// Optional: if you want to manually trigger callback (not needed if using onSigninCallback in main)
+//manually trigger callback (not needed if using onSigninCallback in main)
 export const handleLoginCallback = async () => {
   try {
     const url = window.location.href;

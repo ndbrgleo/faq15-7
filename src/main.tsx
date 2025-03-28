@@ -9,7 +9,7 @@ const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
   const auth = useAuth();
   const [hasTriedSignin, setHasTriedSignin] = useState(false);
 
-  // ⬇️ Your existing login logic
+  //login logic
   useEffect(() => {
     if (auth.isLoading || auth.activeNavigator) return;
 
@@ -19,7 +19,7 @@ const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
     }
   }, [auth.isLoading, auth.activeNavigator, auth.isAuthenticated, hasTriedSignin]);
 
-  // ✅ New: Listen for logout from main app
+  //  try: Listen for logout from main app
   useEffect(() => {
     const remove = userManager.events.addUserSignedOut(async () => {
       console.log("User signed out from identity provider");
