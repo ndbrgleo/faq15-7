@@ -30,6 +30,39 @@ const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
     return () => remove(); // Clean up listener on unmount
   }, []);
 
+  // Periodic token validation
+  useEffect(() => {
+    if (!auth.isAuthenticated) return;
+
+    let validationAttempts = 0;
+    const MAX_ATTEMPTS = 3;
+
+    const validateToken = async () => {
+      try {
+        const user = await userManager.getUser();
+        if (!user || user.expired) {
+          validationAttempts++;
+          console.log(`Token expired or user invalid (attempt ${validationAttempts}/${MAX_ATTEMPTS})`);
+
+          if (validationAttempts >= MAX_ATTEMPTS) {
+            await userManager.removeUser();
+            window.location.reload();
+          }
+        } else {
+          validationAttempts = 0; // Reset counter on successful validation
+        }
+      } catch (error) {
+        console.error("Token validation failed:", error);
+        await userManager.removeUser();
+        window.location.reload();
+      }
+    };
+
+    const interval = setInterval(validateToken, 30000); // Check every 30 seconds
+    return () => clearInterval(interval);
+  }, [auth.isAuthenticated]);
+
+
   if (!auth.isAuthenticated) {
     return <div>Redirecting to login...</div>;
   }
