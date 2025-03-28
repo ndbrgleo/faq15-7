@@ -6,7 +6,7 @@ const settings: UserManagerSettings = {
   redirect_uri: window.location.origin,
   post_logout_redirect_uri: window.location.origin,
   userStore: new WebStorageStateStore({ store: window.localStorage }),
-  monitorSession: true,
+  monitorSession: false,
   response_type: 'code',
   scope: 'openid profile email',
   staleStateAgeInSeconds: 3600,
