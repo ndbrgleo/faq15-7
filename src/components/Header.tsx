@@ -6,10 +6,10 @@ const Header = () => {
   const location = useLocation();
 
   const links = [
-    { label: "FX Analytics", path: "https://app.gojust.com/fx" },
-    { label: "Interest Rate Analytics", path: "https://app.gojust.com/ira" },
-    { label: "Commodities Analytics", path: "https://app.gojust.com/commodities" },
-    { label: "Liquidity Connect", path: "https://app.gojust.com/liquidity", badge: "NEW" },
+    { label: "FX Analytics", path: "https://dev.gojust.eu/home" },
+    { label: "Interest Rate Analytics", path: "https://dev.gojust.eu/interest-rate-analytics" },
+    { label: "Commodities Analytics", path: "https://dev.gojust.eu/commodities-analytics" },
+    { label: "Liquidity Connect", path: "https://dev.gojust.eu/liquidity-connect", badge: "NEW" },
     { label: "Knowledge Hub", path: window.location.origin },
   ];
 
