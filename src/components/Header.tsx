@@ -1,6 +1,15 @@
 
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { HelpCircle, LogOut, User } from "lucide-react";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -44,9 +53,28 @@ const Header = () => {
           >
             Contact
           </Button>
-          <div className="w-8 h-8 bg-[#ff9c00] text-white flex items-center justify-center rounded-full">
-            L
-          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="w-8 h-8 bg-[#ff9c00] text-white flex items-center justify-center rounded-full hover:bg-[#e68a00] transition-colors cursor-pointer">
+              L
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-[240px]">
+              <DropdownMenuItem>
+                <User className="mr-2 h-4 w-4" />
+                <span>Account</span>
+                <DropdownMenuShortcut>Personal details, password, security</DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <HelpCircle className="mr-2 h-4 w-4" />
+                <span>FAQ</span>
+                <DropdownMenuShortcut>Common questions about the FX market</DropdownMenuShortcut>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <LogOut className="mr-2 h-4 w-4" />
+                <span>Log out</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </header>
