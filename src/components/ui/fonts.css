@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Relative';
+  src: url('https://assets.gojust.com/fonts/relative-book.woff2') format('woff2'),
+       url('https://assets.gojust.com/fonts/relative-book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Relative';
+  src: url('https://assets.gojust.com/fonts/relative-medium.woff2') format('woff2'),
+       url('https://assets.gojust.com/fonts/relative-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}

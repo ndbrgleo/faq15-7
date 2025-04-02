@@ -7,10 +7,10 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white">
       <div className="w-full max-w-4xl text-center px-4 py-20">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h1 className="text-4xl md:text-5xl font-[500] text-[#1f272a] mb-6" style={{ fontFamily: 'Relative Medium' }}>
           Welcome to <span className="text-just-orange">Just</span>
         </h1>
-        <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+        <p className="text-xl text-[#6A6F71] mb-10 max-w-2xl mx-auto" style={{ fontFamily: 'Relative Book' }}>
           Reduce FX costs by up to 65% and take control of your FX strategy with our intuitive analytics platform.
         </p>
         
@@ -58,8 +58,10 @@ const Index = () => {
 
 const FeatureCard = ({ title, description }: { title: string; description: string }) => (
   <div className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-all duration-300">
-    <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
-    <p className="text-gray-600">{description}</p>
+    <h3 className="text-xl font-[500] text-[#1f272a] mb-2" style={{ fontFamily: 'Relative Medium' }}>
+      {title}
+    </h3>
+    <p className="text-[#6A6F71]" style={{ fontFamily: 'Relative Book' }}>{description}</p>
   </div>
 );
 

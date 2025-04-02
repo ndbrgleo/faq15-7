@@ -1,84 +1,53 @@
-
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { HelpCircle, LogOut, User } from "lucide-react";
+import "@/components/ui/fonts.css"; // Ensure this is where you place the @font-face definitions
 
-const Header = () => {
+const JustNavigationHeader = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const currentPath = window.location.href;
 
   const links = [
-    { label: "FX Analytics", path: "https://app.gojust.com/fx" },
-    { label: "Interest Rate Analytics", path: "https://app.gojust.com/ira" },
-    { label: "Commodities Analytics", path: "https://app.gojust.com/commodities" },
-    { label: "Liquidity Connect", path: "https://app.gojust.com/liquidity", badge: "NEW" },
-    { label: "Knowledge Hub", path: window.location.origin },
+    { label: "FX Analytics", path: "https://app.gojust.com/home" },
+    { label: "Interest Rate Analytics", path: "https://app.gojust.com/interest-rate-analytics" },
+    { label: "Commodities Analytics", path: "https://app.gojust.com/commodities-analytics" },
+    { label: "Liquidity Connect", path: "https://app.gojust.com/liquidity-connect", badge: "NEW" },
+    { label: "Knowledge Hub", path: window.location.origin, badge: "NEW" },
   ];
 
   return (
-    <header className="w-full bg-[#030607] border-b border-gray-200 sticky top-0 z-50">
-      <div className="w-full px-11 py-3 flex items-center justify-between h-[6rem] text-sm font-medium text-gray-700">
-        <div className="flex items-center space-x-6">
-          <img src="/Just.png" alt="Just Logo" className="h-5 w-auto" />
+    <header className="w-full bg-[#F6FDFF] border-b border-gray-200 sticky top-0 z-50 font-sans">
+      <div className="w-full px-8 py-3 flex items-center justify-between h-[60px] text-[16px] text-[#6A6F71] font-normal leading-[20px]">
+        <div className="flex items-center gap-[40px] pl-[32px]">
+          <img src="/Just.png" alt="Just Logo" className="h-[26px] w-auto mr-[16px]" />
           {links.map((link) => (
             <a
               key={link.label}
               href={link.path}
-              className={`text-white hover:text-white/90 transition-all ${
-                location.pathname === link.path ? "text-white" : ""
+              className={`hover:text-[#6A6F71]/90 transition-colors ${
+                currentPath.startsWith(link.path) ? "text-[#1f272a] font-[500]" : "text-[#6A6F71] font-[400]"
               }`}
             >
               {link.label}
               {link.badge && (
-                <span className="ml-1 text-xs bg-[#ff9c00] text-white px-1.5 py-0.5 rounded-full align-top">
+                <span className="ml-1 text-xs bg-[#f59e0b] text-white px-1.5 py-0.5 rounded-full align-top">
                   {link.badge}
                 </span>
               )}
             </a>
           ))}
         </div>
-        <div className="flex items-center space-x-4">
-          <Button
-            variant="ghost"
-            className="text-white hover:text-white/90"
+        <div className="flex items-center">
+          <Button 
+            className="bg-just-orange hover:bg-just-darkOrange text-white py-2 px-6 rounded-md transition-all text-[16px] font-normal"
             onClick={() => navigate("/contact")}
           >
             Contact
           </Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger className="w-8 h-8 bg-[#ff9c00] text-white flex items-center justify-center rounded-full hover:bg-[#e68a00] transition-colors cursor-pointer">
-              L
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-[240px]">
-              <DropdownMenuItem>
-                <User className="mr-2 h-4 w-4" />
-                <span>Account</span>
-                <DropdownMenuShortcut>Personal details, password, security</DropdownMenuShortcut>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <HelpCircle className="mr-2 h-4 w-4" />
-                <span>FAQ</span>
-                <DropdownMenuShortcut>Common questions about the FX market</DropdownMenuShortcut>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <LogOut className="mr-2 h-4 w-4" />
-                <span>Log out</span>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
       </div>
     </header>
   );
 };
 
-export default Header;
+export default JustNavigationHeader;
