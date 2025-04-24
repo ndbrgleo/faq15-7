@@ -7,7 +7,7 @@ import "./index.css";
 
 const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
   // TEMPORARY: Set to true to bypass auth
-  const BYPASS_AUTH = true;
+  const BYPASS_AUTH = false;
   if (BYPASS_AUTH) return <>{children}</>;
 
   const auth = useAuth();
