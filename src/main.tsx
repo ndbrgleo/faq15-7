@@ -6,6 +6,10 @@ import { userManager } from "./auth";
 import "./index.css";
 
 const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
+  // TEMPORARY: Set to true to bypass auth
+  const BYPASS_AUTH = true;
+  if (BYPASS_AUTH) return <>{children}</>;
+
   const auth = useAuth();
   const [hasTriedSignin, setHasTriedSignin] = useState(false);
 
