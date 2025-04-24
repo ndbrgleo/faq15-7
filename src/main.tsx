@@ -8,11 +8,6 @@ import "./index.css";
 const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
   const auth = useAuth();
   const [hasTriedSignin, setHasTriedSignin] = useState(false);
-  const [bypassAuth, setBypassAuth] = useState(false);
-
-  if (bypassAuth) {
-    return <>{children}</>;
-  }
 
   //login logic
   useEffect(() => {
@@ -71,17 +66,7 @@ const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
 
 
   if (!auth.isAuthenticated) {
-    return (
-      <div className="flex flex-col items-center gap-4 p-4">
-        <div>Redirecting to login...</div>
-        <button 
-          onClick={() => setBypassAuth(true)}
-          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-        >
-          Bypass Auth (Temporary)
-        </button>
-      </div>
-    );
+    return <div>Redirecting to login...</div>;
   }
 
   return <>{children}</>;
