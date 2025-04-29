@@ -11,7 +11,7 @@ const JustNavigationHeader = () => {
     { label: "FX Analytics", path: "https://dev.gojust.eu/home" },
     { label: "Interest Rate Analytics", path: "https://dev.gojust.eu/interest-rate-analytics" },
     { label: "Commodities Analytics", path: "https://dev.gojust.eu/commodities-analytics" },
-    { label: "Liquidity Connect", path: "https://dev.gojust.eu/liquidity-connect", badge: "NEW" },
+    { label: "Liquidity Connect", path: "https://dev.gojust.eu/liquidity-connect" },
     { label: "Knowledge Hub", path: window.location.origin, badge: "NEW" },
   ];
 
