@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 const Contact = () => {
   const navigate = useNavigate();
-  
+
   // Scroll to top on component mount
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -16,7 +16,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#FAFAFA]">
       <Header />
-      
+
       <main className="flex-grow">
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
@@ -28,9 +28,9 @@ const Contact = () => {
             </p>
             <div className="bg-white shadow-xl rounded-xl p-8 border border-gray-200">
               <p className="text-gray-700 mb-6">
-                Our contact page is coming soon. For now, you can reach us at <a href="mailto:support@just.com" className="text-just-orange hover:text-just-darkOrange">support@just.com</a>
+                Our contact page is coming soon. For now, you can reach us at <a href="mailto:support@gojust.com" className="text-just-orange hover:text-just-darkOrange">support@gojust.com</a>
               </p>
-              <Button 
+              <Button
                 onClick={() => navigate("/faq")}
                 className="bg-just-orange hover:bg-just-darkOrange text-white"
               >
@@ -40,7 +40,7 @@ const Contact = () => {
           </div>
         </section>
       </main>
-      
+
       <Footer />
     </div>
   );
