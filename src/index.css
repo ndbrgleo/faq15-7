@@ -93,16 +93,18 @@
   body {
     @apply bg-background text-foreground font-sans;
   }
-  
+
   .faq-content iframe {
     @apply w-full aspect-video rounded-lg my-4 shadow-md;
   }
-  
+
   .faq-item:hover {
     @apply shadow-md transition-all duration-300;
   }
-  
+
   .question-chip {
     @apply inline-block px-2 py-1 text-xs font-medium rounded-full bg-just-orange/10 text-just-orange mb-2;
   }
 }
+
+

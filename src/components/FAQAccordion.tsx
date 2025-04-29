@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { getFAQs } from "@/lib/getFAQs";
+import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 
 interface FAQItem {
   _id: string;
@@ -70,13 +71,71 @@ const FAQAccordion = () => {
       : filteredFAQs;
 
   const renderAnswer = (answer: any[]) => {
-    const markdown = answer
-        .filter((block) => block._type === 'block')
-        .map((block) => block.children.map((child: any) => child.text).join(''))
-        .join('\n\n');
+    const components = {
+      block: {
+        normal: ({ children }) => (
+            <p className="text-[1rem] mb-4 leading-relaxed">{children}</p>
+        ),
+        h1: ({ children }) => (
+            <h1 className="text-3xl font-bold mt-6 mb-3">{children}</h1>
+        ),
+        h2: ({ children }) => (
+            <h2 className="text-2xl font-semibold mt-5 mb-2">{children}</h2>
+        ),
+        h3: ({ children }) => (
+            <h3 className="text-xl font-semibold mt-4 mb-2">{children}</h3>
+        ),
+        h4: ({ children }) => (
+            <h4 className="text-lg font-medium mt-3 mb-1">{children}</h4>
+        ),
+        h5: ({ children }) => (
+            <h5 className="text-base font-medium mt-2 mb-1">{children}</h5>
+        ),
+        h6: ({ children }) => (
+            <h6 className="text-sm font-medium mt-2 mb-1">{children}</h6>
+        ),
+      },
 
-    return <ReactMarkdown>{markdown}</ReactMarkdown>;
+      list: {
+        bullet: ({ children }: { children: any }) => (
+            <ul className="list-disc ml-6 mb-2">{children}</ul>
+        ),
+      },
+      listItem: {
+        bullet: ({ children }: { children: any }) => (
+            <li className="text-[1rem] mb-1 leading-relaxed">{children}</li>
+        ),
+      },
+      marks: {
+        link: ({ value, children }: { value: any; children: any }) => (
+            <a
+                href={value.href}
+                className="text-blue-600 underline"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+              {children}
+            </a>
+        ),
+        strong: ({ children }: { children: any }) => (
+            <strong className="font-medium">{children}</strong>
+        ),
+        em: ({ children }: { children: any }) => (
+            <em className="italic">{children}</em>
+        ),
+        blue: ({ children }: { children: any }) => (
+            <span className="text-blue-500">{children}</span>
+        ),
+        orange: ({ children }: { children: any }) => (
+            <span className="text-orange-500">{children}</span>
+        ),
+      },
+    } as PortableTextReactComponents;
+
+    return <PortableText value={answer} components={components} />;
   };
+
+
 
   return (
       <div className="w-full max-w-7xl mx-auto flex gap-8">
@@ -85,7 +144,7 @@ const FAQAccordion = () => {
             {categories.map((category) => (
                 <p
                     key={category}
-                    className={`cursor-pointer text-lg font-medium text-gray-700 hover:text-just-orange transition-all ${
+                    className={`cursor-pointer text-[1.2rem] font-medium text-gray-700 hover:text-just-orange transition-all ${
                         activeCategory === category ? "text-just-orange" : ""
                     }`}
                     onClick={() => handleCategoryClick(category)}
@@ -108,15 +167,17 @@ const FAQAccordion = () => {
                         {paginatedFAQs.map((faq) => (
                             <div
                                 key={faq._id}
-                                className={`border border-gray-200 rounded-lg bg-white p-6 shadow-sm transition-all duration-300 cursor-pointer hover:shadow-md ${expandedFAQs.includes(faq._id) ? "col-span-full" : ""}`}
+                                className={`border border-gray-200 rounded-lg bg-white p-6 shadow-sm transition-all duration-300 cursor-pointer hover:shadow-md ${
+                                    expandedFAQs.includes(faq._id) ? "col-span-full" : ""
+                                }`}
                                 onClick={() => handleToggle(faq._id)}
                                 role="button"
                                 tabIndex={0}
                                 onKeyPress={() => handleToggle(faq._id)}
                             >
-                              <h3 className="font-medium text-gray-900 text-lg mb-2">{faq.question}</h3>
+                              <h3 className="font-medium text-gray-900 text-[1.1rem] mb-2">{faq.question}</h3> {/* this is the grid */}
                               {expandedFAQs.includes(faq._id) && (
-                                  <div className="prose prose-sm max-w-none faq-content">
+                                  <div className="prose max-w-none faq-content">
                                     {renderAnswer(faq.answer)}
                                     {faq.videoEmbed && (
                                         <div className="mt-4">
@@ -167,12 +228,12 @@ const FAQAccordion = () => {
                         {filteredFAQs.map((faq) => (
                             <AccordionItem key={faq._id} value={faq._id}>
                               <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-gray-50 group">
-                                <h3 className="font-medium text-gray-900 group-hover:text-just-orange transition-colors">
+                                <h3 className="font-medium text-gray-900 text-[1.1rem] group-hover:text-just-orange transition-colors">
                                   {faq.question}
-                                </h3>
+                                </h3> {/* this is the quesions */}
                               </AccordionTrigger>
                               <AccordionContent className="px-6 pt-2 pb-6">
-                                <div className="prose prose-sm max-w-none faq-content">
+                                <div className="prose max-w-none faq-content">
                                   {renderAnswer(faq.answer)}
                                   {faq.videoEmbed && (
                                       <div className="mt-4">
