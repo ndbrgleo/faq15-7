@@ -29,7 +29,7 @@ export default defineConfig({
                                   'Video Tutorials',
                                   'FX Market Mechanics',
                                   'FX Instruments',
-                                  'FX Courses',
+                                  //'FX Courses',
                                   'Guides'
                                 ].map((category) =>
                                     orderableDocumentListDeskItem({

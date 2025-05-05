@@ -49,9 +49,18 @@ const FAQAccordion = () => {
     }
   }, [activeCategory, allFAQs]);
 
-  const categories = allFAQs.length
-      ? Array.from(new Set(allFAQs.map((item) => item.category)))
-      : [];
+  const allowedCategories = [
+    "FAQ",
+    "Video Tutorials",
+    "FX Market Mechanics",
+    "FX Instruments",
+    "Guides",
+  ];
+
+  const categories = allowedCategories.filter(cat =>
+      allFAQs.some(faq => faq.category === cat)
+  );
+
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(category);
