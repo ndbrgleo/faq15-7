@@ -66,7 +66,7 @@ const FAQAccordion = () => {
   };
 
   const totalPages = Math.ceil(filteredFAQs.length / ITEMS_PER_PAGE);
-  const paginatedFAQs = activeCategory === "Guides (Playbooks)"
+  const paginatedFAQs = activeCategory === "Guides"
       ? filteredFAQs.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
       : filteredFAQs;
 
@@ -100,12 +100,19 @@ const FAQAccordion = () => {
         bullet: ({ children }: { children: any }) => (
             <ul className="list-disc ml-6 mb-2">{children}</ul>
         ),
+        number: ({ children }: { children: any }) => (
+            <ol className="list-decimal ml-6 mb-2">{children}</ol>
+        ),
       },
       listItem: {
         bullet: ({ children }: { children: any }) => (
             <li className="text-[1rem] mb-1 leading-relaxed">{children}</li>
         ),
+        number: ({ children }: { children: any }) => (
+            <li className="text-[1rem] mb-1 leading-relaxed">{children}</li>
+        ),
       },
+
       marks: {
         link: ({ value, children }: { value: any; children: any }) => (
             <a
@@ -161,42 +168,50 @@ const FAQAccordion = () => {
         <div className="flex-grow">
           {filteredFAQs.length === 0 ? null : (
               <>
-                {activeCategory === "Guides (Playbooks)" ? (
+                {activeCategory === "Guides" ? (
                     <>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {paginatedFAQs.map((faq) => (
-                            <div
-                                key={faq._id}
-                                className={`border border-gray-200 rounded-lg bg-white p-6 shadow-sm transition-all duration-300 cursor-pointer hover:shadow-md ${
-                                    expandedFAQs.includes(faq._id) ? "col-span-full" : ""
-                                }`}
+                      <div className="flex flex-col gap-6">
+                      {paginatedFAQs.map((faq) => (
+                          <div
+                              key={faq._id}
+                              className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all"
+                          >
+                            <h3 className="text-xl font-semibold text-gray-900 mb-2">{faq.question}</h3>
+
+                            {/* Optional: short preview of the answer */}
+                            <p className="text-gray-600 mb-4 line-clamp-3">
+                              {faq.answer?.[0]?.children?.[0]?.text || 'Read more...'}
+                            </p>
+
+                            <button
                                 onClick={() => handleToggle(faq._id)}
-                                role="button"
-                                tabIndex={0}
-                                onKeyPress={() => handleToggle(faq._id)}
+                                className="text-just-orange font-medium hover:underline"
                             >
-                              <h3 className="font-medium text-gray-900 text-[1.1rem] mb-2">{faq.question}</h3> {/* this is the grid */}
-                              {expandedFAQs.includes(faq._id) && (
-                                  <div className="prose max-w-none faq-content">
-                                    {renderAnswer(faq.answer)}
-                                    {faq.videoEmbed && (
-                                        <div className="mt-4">
-                                          <iframe
-                                              width="100%"
-                                              height="100%"
-                                              className="aspect-video"
-                                              src={faq.videoEmbed}
-                                              title={`Video for ${faq.question}`}
-                                              frameBorder="0"
-                                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                              allowFullScreen
-                                          ></iframe>
-                                        </div>
-                                    )}
-                                  </div>
-                              )}
-                            </div>
-                        ))}
+                              {expandedFAQs.includes(faq._id) ? "Hide" : "Read more"}
+                            </button>
+
+                            {expandedFAQs.includes(faq._id) && (
+                                <div className="mt-4 prose max-w-none faq-content">
+                                  {renderAnswer(faq.answer)}
+                                  {faq.videoEmbed && (
+                                      <div className="mt-4">
+                                        <iframe
+                                            width="100%"
+                                            height="100%"
+                                            className="aspect-video"
+                                            src={faq.videoEmbed}
+                                            title={`Video for ${faq.question}`}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        ></iframe>
+                                      </div>
+                                  )}
+                                </div>
+                            )}
+                          </div>
+
+                      ))}
                       </div>
                       {totalPages > 1 && (
                           <div className="flex justify-center gap-4 mt-6">

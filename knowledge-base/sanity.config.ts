@@ -30,7 +30,7 @@ export default defineConfig({
                                   'FX Market Mechanics',
                                   'FX Instruments',
                                   'FX Courses',
-                                  'Guides (Playbooks)'
+                                  'Guides'
                                 ].map((category) =>
                                     orderableDocumentListDeskItem({
                                       type: 'faq',

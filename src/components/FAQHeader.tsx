@@ -7,7 +7,7 @@ const FAQHeader = () => {
             <h1 className="text-3xl md:text-7xl font-bold text-gray-900 mb-0">
                 Knowledge Hub
             </h1>
-            <p className="text-2xl text-gray-600 max-w-2xl mx-auto mb-1">
+            <p className="text-2xl text-gray-600 max-w-4xl mx-auto mb-1">
                 Your comprehensive guide to mastering the foreign exchange market
             </p>
             {/*<div className="flex flex-col sm:flex-row justify-center gap-4">

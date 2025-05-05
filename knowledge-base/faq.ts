@@ -29,7 +29,7 @@ export default defineType({
                     { title: 'FX Market Mechanics', value: 'FX Market Mechanics' },
                     { title: 'FX Instruments', value: 'FX Instruments' },
                     { title: 'FX Courses', value: 'FX Courses' },
-                    { title: 'Guides (Playbooks)', value: 'Guides (Playbooks)' },
+                    { title: 'Guides', value: 'Guides' },
                 ],
             },
         }),
