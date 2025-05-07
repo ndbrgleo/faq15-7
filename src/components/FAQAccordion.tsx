@@ -184,7 +184,7 @@ const FAQAccordion = () => {
 
         <div className="flex-grow">
           {categoryDescriptions[activeCategory || ""] && (
-              <p className="text-just-orange font-medium text-lg mb-4 pl-6">
+              <p className="text-black font-medium text-lg mb-4 pl-6">
               {categoryDescriptions[activeCategory || ""]}
               </p>
           )}
