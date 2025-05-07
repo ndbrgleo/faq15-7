@@ -56,12 +56,12 @@ const FAQ = () => {
                   Meet with our Customer Success team to get personalized guidance.
                 </p>
                 <a
-                    href="https://www.gojust.com/book-a-demo"
+                    href="https://calendar.app.google/K8kfhHaNj7DvA2ZZ9"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-just-orange hover:text-just-darkOrange font-medium underline"
                 >
-                  Book your meeting now
+                  Book an appointment
                 </a>
               </div>
             </div>
