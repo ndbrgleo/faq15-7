@@ -59,10 +59,10 @@ const FAQAccordion = () => {
   ];
 
   const categoryDescriptions: Record<string, string> = {
-    "Frequently Asked Questions": "Quick answers to common questions related to Just platform.",
-    "Video Tutorials": "Watch how to use Just step-by-step.",
-    "FX Fundamentals": "Core concepts and market basics.",
-    "Guides": "Playbooks in FX market, bank negotiations and more."
+    "Frequently Asked Questions": "Quick answers to common questions related to Just platform",
+    "Video Tutorials": "Watch how to use Just step-by-step",
+    "FX Fundamentals": "Core concepts and market basics",
+    "Guides": "Playbooks in FX market, bank negotiations and more"
   };
 
   const categories = allowedCategories.filter(cat =>
@@ -184,7 +184,7 @@ const FAQAccordion = () => {
 
         <div className="flex-grow">
           {categoryDescriptions[activeCategory || ""] && (
-              <p className="text-just-orange font-medium text-lg mb-4 text-center">
+              <p className="text-just-orange font-medium text-lg mb-4 pl-6">
               {categoryDescriptions[activeCategory || ""]}
               </p>
           )}

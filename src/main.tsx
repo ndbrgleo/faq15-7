@@ -79,15 +79,15 @@ const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <AuthProvider
-      userManager={userManager}
-      onSigninCallback={() => {
-        window.history.replaceState({}, document.title, window.location.origin);
-      }}
-    >
-      <JustAuthConsumer>
+    {/*<AuthProvider*/}
+    {/*  userManager={userManager}*/}
+    {/*  onSigninCallback={() => {*/}
+    {/*    window.history.replaceState({}, document.title, window.location.origin);*/}
+    {/*  }}*/}
+    {/*>*/}
+    {/*  <JustAuthConsumer>*/}
         <App />
-      </JustAuthConsumer>
-    </AuthProvider>
+      {/*</JustAuthConsumer>*/}
+    {/*</AuthProvider>*/}
   </React.StrictMode>
 );
