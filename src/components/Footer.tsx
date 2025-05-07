@@ -71,12 +71,6 @@ const Footer = () => {
           <p className="text-sm text-gray-500">
             &copy; {new Date().getFullYear()} Just Technologies. All rights reserved.
           </p>
-          <div className="mt-4 md:mt-0">
-            <Button variant="outline" className="mr-4">Login</Button>
-            <Button className="bg-just-orange hover:bg-just-darkOrange text-white">
-              Book a demo
-            </Button>
-          </div>
         </div>
       </div>
     </footer>
