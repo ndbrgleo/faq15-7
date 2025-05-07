@@ -44,6 +44,14 @@ export default defineType({
             type: 'string',
             hidden: true, // Required by plugin, but invisible in Studio
         }),
+        defineField({
+            name: 'summary',
+            title: 'Card summary',
+            type: 'string',
+            description: 'A short one‐liner to show on the guide card',
+            validation: (Rule) => Rule.required().max(200),
+        }),
+
     ],
 })
 

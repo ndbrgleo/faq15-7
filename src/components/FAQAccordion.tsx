@@ -10,6 +10,7 @@ import { getFAQs } from "@/lib/getFAQs";
 import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 
 interface FAQItem {
+  summary: string;
   _id: string;
   category: string;
   question: string;
@@ -59,10 +60,10 @@ const FAQAccordion = () => {
   ];
 
   const categoryDescriptions: Record<string, string> = {
-    "Frequently Asked Questions": "Quick answers to common questions related to Just platform",
+    "Frequently Asked Questions": "Find quick answers to common questions about the Just platform",
     "Video Tutorials": "Watch how to use Just step-by-step",
-    "FX Fundamentals": "Core concepts and market basics",
-    "Guides": "Playbooks in FX market, bank negotiations and more"
+    "FX Fundamentals": "Understanding Key FX Concepts",
+    "Guides": "Negotiation Handbook"
   };
 
   const categories = allowedCategories.filter(cat =>
@@ -200,9 +201,9 @@ const FAQAccordion = () => {
                           >
                             <h3 className="text-xl font-semibold text-gray-900 mb-2">{faq.question}</h3>
 
-                            {/* Optional: short preview of the answer */}
-                            <p className="text-gray-600 mb-4 line-clamp-3">
-                              {faq.answer?.[0]?.children?.[0]?.text || 'Read more...'}
+                            {/* Summery */}
+                            <p className="text-gray-500 mb-4 font-medium pl-6 text-[1rem] leading-relaxed">
+                            {faq.summary}
                             </p>
 
                             <button
@@ -264,7 +265,7 @@ const FAQAccordion = () => {
                       >
                         {filteredFAQs.map((faq) => (
                             <AccordionItem key={faq._id} value={faq._id}>
-                              <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-gray-50 group">
+                              <AccordionTrigger className="py-4 hover:no-underline hover:bg-gray-50 group">
                                 <h3 className="font-medium text-gray-900 text-[1.1rem] group-hover:text-just-orange transition-colors">
                                   {faq.question}
                                 </h3> {/* this is the quesions */}

@@ -11,9 +11,10 @@ export const getFAQs = async () => {
     try {
         const data = await client.fetch(`*[_type == "faq"] | order(orderRank) {
   _id,
-  question,
-  answer,
   category,
+  question,
+  summary,
+  answer,
   videoEmbed
 }`)
 
