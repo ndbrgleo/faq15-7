@@ -17,11 +17,11 @@ const Footer = () => {
             <p className="mt-4 text-sm text-gray-600">
               Helping companies reduce FX costs and take control of their FX strategy.
             </p>
-            <div className="mt-4 flex space-x-3">
-              <SocialIcon href="#" icon="linkedin" />
-              <SocialIcon href="#" icon="twitter" />
-              <SocialIcon href="#" icon="facebook" />
-            </div>
+            {/*<div className="mt-4 flex space-x-3">*/}
+            {/*  <SocialIcon href="#" icon="linkedin" />*/}
+            {/*  <SocialIcon href="#" icon="twitter" />*/}
+            {/*  <SocialIcon href="#" icon="facebook" />*/}
+            {/*</div>*/}
           </div>
           
           <div>
