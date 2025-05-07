@@ -25,10 +25,11 @@ export default defineConfig({
                             .title('Grouped by Category')
                             .items(
                                 [
-                                  'FAQ',
+                                  'Frequently Asked Questions',
+                                  //'FAQ',
                                   'Video Tutorials',
-                                  'FX Market Mechanics',
-                                  'FX Instruments',
+                                  'FX Fundamentals',
+                                  //'FX Instruments',
                                   //'FX Courses',
                                   'Guides'
                                 ].map((category) =>

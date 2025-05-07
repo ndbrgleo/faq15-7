@@ -24,10 +24,11 @@ export default defineType({
             type: 'string',
             options: {
                 list: [
-                    { title: 'FAQ', value: 'FAQ' },
+                    { title: 'Frequently Asked Questions', value: 'Frequently Asked Questions' },
+                    //{ title: 'FAQ', value: 'FAQ' },
                     { title: 'Video Tutorials', value: 'Video Tutorials' },
-                    { title: 'FX Market Mechanics', value: 'FX Market Mechanics' },
-                    { title: 'FX Instruments', value: 'FX Instruments' },
+                    { title: 'FX Fundamentals', value: 'FX Fundamentals' },
+                    //{ title: 'FX Instruments', value: 'FX Instruments' },
                     //{ title: 'FX Courses', value: 'FX Courses' },
                     { title: 'Guides', value: 'Guides' },
                 ],

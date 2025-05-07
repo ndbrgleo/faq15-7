@@ -20,7 +20,7 @@ interface FAQItem {
 const FAQAccordion = () => {
   const [allFAQs, setAllFAQs] = useState<FAQItem[]>([]);
   const [filteredFAQs, setFilteredFAQs] = useState<FAQItem[]>([]);
-  const [activeCategory, setActiveCategory] = useState<string | null>("FAQ");
+  const [activeCategory, setActiveCategory] = useState<string | null>("Frequently Asked Questions");
   const [expandedFAQs, setExpandedFAQs] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const ITEMS_PER_PAGE = 6;
@@ -29,7 +29,7 @@ const FAQAccordion = () => {
     getFAQs().then((data) => {
       setAllFAQs(data);
       if (data.length > 0) {
-        const defaultFiltered = data.filter(item => item.category === "FAQ");
+        const defaultFiltered = data.filter(item => item.category === "Frequently Asked Questions");
         setFilteredFAQs(defaultFiltered);
       }
     });
@@ -50,12 +50,20 @@ const FAQAccordion = () => {
   }, [activeCategory, allFAQs]);
 
   const allowedCategories = [
-    "FAQ",
+    "Frequently Asked Questions",
+    //"FAQ",
     "Video Tutorials",
-    "FX Market Mechanics",
-    "FX Instruments",
+    "FX Fundamentals",
+    //"FX Instruments",
     "Guides",
   ];
+
+  const categoryDescriptions: Record<string, string> = {
+    "Frequently Asked Questions": "Quick answers to common questions related to Just platform.",
+    "Video Tutorials": "Watch how to use Just step-by-step.",
+    "FX Fundamentals": "Core concepts and market basics.",
+    "Guides": "Playbooks in FX market, bank negotiations and more."
+  };
 
   const categories = allowedCategories.filter(cat =>
       allFAQs.some(faq => faq.category === cat)
@@ -175,6 +183,11 @@ const FAQAccordion = () => {
         </div>
 
         <div className="flex-grow">
+          {categoryDescriptions[activeCategory || ""] && (
+              <p className="text-just-orange font-medium text-lg mb-4 text-center">
+              {categoryDescriptions[activeCategory || ""]}
+              </p>
+          )}
           {filteredFAQs.length === 0 ? null : (
               <>
                 {activeCategory === "Guides" ? (
