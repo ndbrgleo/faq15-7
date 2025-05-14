@@ -2,7 +2,7 @@ import FAQHeader from "@/components/FAQHeader";
 import FAQAccordion from "@/components/FAQAccordion";
 // import CTASection from "@/components/CTASection";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
 const FAQ = () => {
@@ -80,7 +80,7 @@ const FAQ = () => {
         {/*<CTASection />*/}
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
