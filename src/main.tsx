@@ -4,6 +4,8 @@ import App from "./App";
 import { AuthProvider, useAuth } from "react-oidc-context";
 import { userManager } from "./auth";
 import "./index.css";
+import mixpanel from "@/lib/mixpanel";
+
 
 const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
   // TEMPORARY: Set to true to bypass auth
@@ -12,6 +14,21 @@ const JustAuthConsumer = ({ children }: { children: React.ReactNode }) => {
 
   const auth = useAuth();
   const [hasTriedSignin, setHasTriedSignin] = useState(false);
+
+  useEffect(() => {
+    if (!auth?.user?.profile?.email) return;
+
+    mixpanel.identify(auth.user.profile.email);
+    mixpanel.people.set({
+      $email: auth.user.profile.email,
+      $name: auth.user.profile.name || '',
+      $id: auth.user.profile.sub,
+    });
+    mixpanel.track('User Loaded App', {
+      email: auth.user.profile.email,
+    });
+  }, [auth.user]);
+
 
   //login logic
   useEffect(() => {

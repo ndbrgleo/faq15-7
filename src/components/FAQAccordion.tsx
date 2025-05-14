@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { getFAQs } from "@/lib/getFAQs";
 import { PortableText, PortableTextReactComponents } from '@portabletext/react';
+import mixpanel from "@/lib/mixpanel";
 
 interface FAQItem {
   summary: string;
@@ -72,8 +73,13 @@ const FAQAccordion = () => {
 
 
   const handleCategoryClick = (category: string) => {
+    mixpanel.track("Category Viewed", {
+      category_name: category,
+    });
+
     setActiveCategory(category);
   };
+
 
   const handleToggle = (faqId: string) => {
     if (expandedFAQs.includes(faqId)) {

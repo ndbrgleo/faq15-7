@@ -36,14 +36,14 @@ const JustNavigationHeader = () => {
               )}
             </a>
           ))}
-        </div>
-        <div className="flex items-center">
-          <Button 
-            className="bg-just-orange hover:bg-just-darkOrange text-white py-2 px-6 rounded-md transition-all text-[16px] font-normal"
-            onClick={() => navigate("/contact")}
-          >
-            Contact
-          </Button>
+        {/*</div>*/}
+        {/*<div className="flex items-center">*/}
+        {/*  <Button */}
+        {/*    className="bg-just-orange hover:bg-just-darkOrange text-white py-2 px-6 rounded-md transition-all text-[16px] font-normal"*/}
+        {/*    onClick={() => navigate("/contact")}*/}
+        {/*  >*/}
+        {/*    Contact*/}
+        {/*  </Button>*/}
         </div>
       </div>
     </header>

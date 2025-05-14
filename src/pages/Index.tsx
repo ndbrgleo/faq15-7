@@ -2,8 +2,13 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
+import { useEffect } from "react";
+import mixpanel from "../lib/mixpanel";
 
 const Index = () => {
+  useEffect(() => {
+    mixpanel.track('Page Viewed - Home');
+  }, []);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white">
       <div className="w-full max-w-4xl text-center px-4 py-20">
@@ -25,7 +30,8 @@ const Index = () => {
             </Link>
           </Button>
           <Button 
-            variant="outline" 
+            variant="outline"
+            onClick={() => mixpanel.track('Clicked Book Demo')}
             className="border-just-orange text-just-orange hover:bg-just-orange/10 p-6 rounded-md transition-all text-lg"
           >
             Book a demo

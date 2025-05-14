@@ -1,5 +1,7 @@
 import { UserManager, WebStorageStateStore, UserManagerSettings } from 'oidc-client-ts';
 
+const KEYCLOAK_URL = import.meta.env.VITE_KEYCLOAK_URL;
+
 export function oidcAuthorityURL() {
   let url = `https://accounts.${window.location.host}`;
   if (window.location.host.startsWith('localhost')) {
