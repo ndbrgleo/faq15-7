@@ -1,7 +1,17 @@
 import { UserManager, WebStorageStateStore, UserManagerSettings } from 'oidc-client-ts';
 
+export function oidcAuthorityURL() {
+  let url = `https://accounts.${window.location.host}`;
+  if (window.location.host.startsWith('localhost')) {
+    // @ts-ignore
+    url = KEYCLOAK_URL ? KEYCLOAK_URL : 'https://accounts.dev.gojust.eu';
+  }
+  url = url.replace('knowledge-hub.', '');
+  return url + '/realms/just';
+}
+
 const settings: UserManagerSettings = {
-  authority: 'https://accounts.dev.gojust.eu/realms/just',
+  authority: oidcAuthorityURL(),
   client_id: 'sassy-saddles',
   redirect_uri: window.location.origin,
   post_logout_redirect_uri: window.location.origin,

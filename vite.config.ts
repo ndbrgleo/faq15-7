@@ -8,6 +8,9 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    allowedHosts: [
+      "localhost", 
+      "8b41bdca-7801-45c9-b527-a6682b6a3eb6-00-1lyeyuyrf5pbr.janeway.replit.dev"]
   },
   plugins: [
     react(),
